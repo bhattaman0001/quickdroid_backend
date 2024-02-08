@@ -21,4 +21,4 @@ connectMongoDB(
 app.use(express.urlencoded({ extended: false }));
 app.use(logReqRes("log.txt"));
 app.use("/files", router);
-app.listen(process.env.PORT || 4004, () => console.log(`Server started:`));
+app.listen(4004, () => console.log(`Server started:`));
