@@ -2,7 +2,6 @@ const express = require("express");
 const connectMongoDB = require("./connection");
 const { logReqRes } = require("./middlewares/middlewaresJS");
 const router = require("./routes/routeJS");
-const env = require("./.env");
 // making the application
 const app = express();
 
