@@ -2,12 +2,14 @@ const express = require("express");
 const connectMongoDB = require("./connection");
 const { logReqRes } = require("./middlewares/middlewaresJS");
 const router = require("./routes/routeJS");
+const env = require("./.env");
 // making the application
 const app = express();
 
-const PORT = 4004;
 // connection with DB
-connectMongoDB("mongodb://127.0.0.1:27017/quickdroid-backend")
+connectMongoDB(
+  `mongodb+srv://amanbhatt02:aman2001@cluster0.ey10qw7.mongodb.net/`
+)
   .then(() => {
     return console.log("Database connected!!");
   })
@@ -19,4 +21,4 @@ connectMongoDB("mongodb://127.0.0.1:27017/quickdroid-backend")
 app.use(express.urlencoded({ extended: false }));
 app.use(logReqRes("log.txt"));
 app.use("/files", router);
-app.listen(PORT, () => console.log(`Server started at port: ${PORT}`));
+app.listen(process.env.PORT || 4004, () => console.log(`Server started:`));
