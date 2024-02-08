@@ -6,7 +6,6 @@ const {
 } = require("../controllers/controllerJS");
 
 const router = express.Router();
-
 router.get("/:fileName", handleGetAllFilesByName);
 router.post("/addFile", handleAddNewFile);
 // we have first registered the routes in the router and then exported it.
