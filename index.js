@@ -7,7 +7,7 @@ const app = express();
 
 // connection with DB
 connectMongoDB(
-  `mongodb+srv://amanbhatt02:aman2001@cluster0.ey10qw7.mongodb.net/`
+  `mongodb+srv://amanbhatt02:aman2001@cluster0.ey10qw7.mongodb.net/bck`
 )
   .then(() => {
     return console.log("Database connected!!");
