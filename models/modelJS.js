@@ -7,8 +7,7 @@ const fileSchema = mongoose.Schema(
     },
     file_name: {
       type: String,
-      required: true,
-      unique: true,
+      required: true,      
     },
     file_link: {
       type: String,

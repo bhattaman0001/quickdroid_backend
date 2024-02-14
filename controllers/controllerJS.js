@@ -1,10 +1,15 @@
 const File = require("../models/modelJS");
 
 async function handleGetAllFilesByName(req, res) {
-  const fileName = req.params.fileName;
+  const fileName = req.query.q; // this is file name
+  const fileType = req.query.type; // this is the type of file
   const regexQuery = new RegExp(fileName, "i");
   try {
-    const fileArr = await File.find({ file_name: regexQuery });
+    let query = { file_name: regexQuery };
+    if (fileType) {
+      query.file_type = fileType;
+    }
+    const fileArr = await File.find(query);
     fileArr.forEach((element) => {
       element.time_ago =
         Math.round((new Date() - element.updatedAt) / (1000 * 60 * 60 * 24)) +
