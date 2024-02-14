@@ -15,7 +15,7 @@ async function handleGetAllFilesByName(req, res) {
         Math.round((new Date() - element.updatedAt) / (1000 * 60 * 60 * 24)) +
         ` days`;
     });
-    return res.json(fileArr);
+    return res.json({ data: fileArr });
   } catch (error) {
     return res.status(500).send(error);
   }
